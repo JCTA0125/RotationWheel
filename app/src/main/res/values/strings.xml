@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RotationWheel</string>
+    <string name="type">startAngle=\"315\"</string>
+</resources>
