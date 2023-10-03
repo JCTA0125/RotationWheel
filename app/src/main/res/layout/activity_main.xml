@@ -4,41 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".mainOrder">
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="match_parent"
+    <!--
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="WheelView"
-        android:textAlignment="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="Search here ..." />
+
+    </com.google.android.material.card.MaterialCardView>
+    -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="197dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="43dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.wheelview.WheelView
         android:id="@+id/wheel_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="309dp"
+        android:layout_height="317dp"
         android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898"
         app:userInputMode="true"
-        app:wheelDividerStrokeWidth="16dp"
+        app:wheelAnchorAngle="270"
+        app:wheelAnimationDuration="800"
         app:wheelArcBackgroundColor="#F7F8FB"
-        app:wheelSelectedArcBackgroundColor="#FE6447"
         app:wheelCenterIcon="@drawable/ic_baseline_add_24"
         app:wheelCenterIconPadding="16dp"
         app:wheelCenterIconTint="@color/white"
-        app:wheelAnchorAngle="270"
-        app:wheelStartAngle="315"
-        app:wheelTextSize="16sp"
-        app:wheelSelectedTextColor="#FFF"
-        app:wheelTextColor="#000000"
-        app:wheelAnimationDuration="800"
+        app:wheelDividerStrokeWidth="16dp"
         app:wheelMode="ANIMATE_TO_ANCHOR"
-        />
+        app:wheelSelectedArcBackgroundColor="#FE6447"
+        app:wheelSelectedTextColor="#FFF"
+        app:wheelStartAngle="315"
+        app:wheelTextColor="#000000"
+        app:wheelTextSize="16sp" />
 
     <TextView
-        android:visibility="gone"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -47,20 +76,9 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wheel_view" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="120dp"
-        android:layout_height="68dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
 </androidx.constraintlayout.widget.ConstraintLayout>

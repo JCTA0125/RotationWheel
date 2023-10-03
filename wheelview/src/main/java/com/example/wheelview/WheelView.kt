@@ -172,7 +172,7 @@ class WheelView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         }
 
     //listeners
-    var selectListener: (Int) -> String = {focusedIndex -> toString()}
+    var selectListener: ((Int) -> Unit)? = null
     var centerClickListener: (() -> Unit)? = null
 
     //mask filter for shadow
@@ -330,16 +330,26 @@ class WheelView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         }
         for ((index, arc) in arcs.withIndex()) { // check the arcs
             if (event.inside(arcRect, arc.startAngle, arc.sweepAngle)) {
+                /*
+                if(focusedIndex == index){
+
+                }
+                 */
                 focusedIndex = index
-                selectListener?.let { arc.selected = true }
+                selectListener?.let { it(index) }
+
+                break
             }
-            else selectListener?.let { arc.selected = false }
         }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (_userInputMode) gestureDetector.onTouchEvent(event)
         else super.onTouchEvent(event)
+    }
+
+    fun menuSelect(event: MotionEvent) {
+
     }
 
 }
