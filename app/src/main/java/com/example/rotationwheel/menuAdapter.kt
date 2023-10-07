@@ -32,7 +32,7 @@ class menuAdapter (var mList: List<menuList>) :
         override fun onBindViewHolder(holder: menuViewHolder, position: Int) {
 
             val menu = mList[position]
-            holder.logo.setImageResource(menu.menuPic)
+            menu.menuPic?.let { holder.logo.setImageResource(it) }
             holder.menu.text = menu.menu
             holder.menuDesc.text = menu.desc
 
